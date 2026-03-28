@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "SafarSaathi"
+version = "1.0.0"
+id = "artifacts/safarsaathi"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/" ]
+localPort = 22626
+
+[services.development]
+run = "pnpm --filter @workspace/safarsaathi run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/safarsaathi", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/safarsaathi", "run", "serve" ]
+
+[services.env]
+PORT = "22626"
+BASE_PATH = "/"
